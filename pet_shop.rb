@@ -107,12 +107,11 @@ def customer_can_afford_pet(customer, new_pet)
 end
 
 
-
 def sell_pet_to_customer(pet_shop, pet, customer)
   if pet == nil
     return customer[:pets].length()
 
-  elsif customer_can_afford_pet(customer, pet) == true
+  elsif customer_can_afford_pet(customer, pet)
 
 # add pet to customer/remove from stock
     add_pet_to_customer(customer, pet)
@@ -124,9 +123,5 @@ def sell_pet_to_customer(pet_shop, pet, customer)
 # add cash to total_cash/remove from customer
     add_or_remove_cash(pet_shop, pet[:price])
     customer[:cash] -= pet[:price]
-    
   end
-  return customer[:pets].length()
-  return pet_shop[:admin][:pets_sold]
-  return pet_shop[:admin][:total_cash]
 end
